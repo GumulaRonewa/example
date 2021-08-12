@@ -31,7 +31,8 @@ class App extends Component {
       to:null,
       price:null,
       From:null,
-      to:null
+      to:null,
+      data:[]
     };
   }
   
@@ -59,7 +60,7 @@ class App extends Component {
       data: search,
     })
       .then((res) => {
-        console.log(res);
+        this.setState({ data: res.data });
       })
       .catch((e) => {
         console.log("error");
@@ -72,6 +73,7 @@ class App extends Component {
     this.setState({ [name]: value });
   };
   render() {
+    const data= this.state;
     return (
       <div className="wraps">
 
@@ -139,6 +141,20 @@ class App extends Component {
             <StyledButton onClick={this.handleGet}>
               Search
             </StyledButton>
+           </div>
+           <div>
+              {
+             data.map((item,index)=>(
+
+               <p >
+                  Province: {item.Province} <br/>
+                  City:{item.City} <br/>
+                  From:{item.from} <br/>
+                  To:{item.to} <br/>
+                  Price:{item.price} <br/>
+               </p>
+               ))
+           }
            </div>
  
       </div>
