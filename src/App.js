@@ -44,40 +44,33 @@ class App extends Component {
     return (
       <div className="wraps">
 
-        <div className={"roots"} variant="outlined">
-          
-          <div className="loginemail">
             <TextField
               placeholder=""
               label="Province"
               name="Province"
               margin="normal"
             />
-          </div>
-          <div className="loginemail">
+          
             <TextField
               placeholder=""
               label="City"
               name="City"
               margin="normal"
             />
-          </div>
-          <div className="loginemail">
+          
             <TextField
               placeholder=""
               label="from"
               name="from"
               margin="normal"
             />
-          </div>
-          <div className="loginemail">
+         
             <TextField
               placeholder=""
               label="to"
               name="to"
               margin="normal"
             />
-          </div>
          
 
  
