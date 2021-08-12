@@ -31,7 +31,7 @@ class App extends Component {
       to:null,
       price:null,
       From:null,
-      to:null,
+      To:null,
       data:[]
     };
   }
@@ -125,7 +125,7 @@ class App extends Component {
           <div>
            <TextField
               placeholder=""
-              label="from"
+              label="From"
               name="From"
               margin="normal"
               onChange={this.handleChange}
@@ -133,7 +133,7 @@ class App extends Component {
          
             <TextField
               placeholder=""
-              label="to"
+              label="To"
               name="To"
               margin="normal"
               onChange={this.handleChange}
