@@ -29,7 +29,9 @@ class App extends Component {
       City:null,
       from:null,
       to:null,
-      price:null
+      price:null,
+      From:null,
+      to:null
     };
   }
   
@@ -46,6 +48,24 @@ class App extends Component {
         console.log("error");
       });
   };
+    handleGet= (e) => {
+      const search={
+        from:this.state.From,
+        to:this.state.To
+      }
+    axios({
+      method: "POST",
+      url: "https://taxiroutes.herokuapp.com/routes/search",
+      data: search,
+    })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((e) => {
+        console.log("error");
+      });
+  };
+
   handleChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
@@ -97,10 +117,29 @@ class App extends Component {
             <StyledButton onClick={this.handleClick}>
               ADD
             </StyledButton>
-
+            
 
            </div>
-
+          <div>
+           <TextField
+              placeholder=""
+              label="from"
+              name="From"
+              margin="normal"
+              onChange={this.handleChange}
+            />
+         
+            <TextField
+              placeholder=""
+              label="to"
+              name="To"
+              margin="normal"
+              onChange={this.handleChange}
+            />
+            <StyledButton onClick={this.handleGet}>
+              Search
+            </StyledButton>
+           </div>
  
       </div>
     );

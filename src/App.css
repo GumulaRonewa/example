@@ -8,6 +8,7 @@
   overflow-x: auto;
 
   display: flex;
+  flex-direction: column;
   
 }
 .roots {
