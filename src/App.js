@@ -25,15 +25,26 @@ class App extends Component {
     super(props);
 
     this.state = {
-      email: null,
-
-      password: null,
-      error: false,
+      Province:null,
+      City:null,
+      from:null,
+      to:null,
+      price:null
     };
   }
   
   handleClick = (e) => {
-    
+    axios({
+      method: "POST",
+      url: "https://taxiroutes.herokuapp.com/routes/add",
+      data: this.state,
+    })
+      .then((res) => {
+        console.log("added");
+      })
+      .catch((e) => {
+        console.log("error");
+      });
   };
   handleChange = (e) => {
     e.preventDefault();
@@ -44,11 +55,13 @@ class App extends Component {
     return (
       <div className="wraps">
 
-            <TextField
+           <div>
+              <TextField
               placeholder=""
               label="Province"
               name="Province"
               margin="normal"
+              onChange={this.handleChange}
             />
           
             <TextField
@@ -56,6 +69,7 @@ class App extends Component {
               label="City"
               name="City"
               margin="normal"
+              onChange={this.handleChange}
             />
           
             <TextField
@@ -63,6 +77,7 @@ class App extends Component {
               label="from"
               name="from"
               margin="normal"
+              onChange={this.handleChange}
             />
          
             <TextField
@@ -70,8 +85,21 @@ class App extends Component {
               label="to"
               name="to"
               margin="normal"
+              onChange={this.handleChange}
             />
-         
+            <TextField
+              placeholder=""
+              label="Price"
+              name="price"
+              margin="normal"
+              onChange={this.handleChange}
+            />
+            <StyledButton onClick={this.handleClick}>
+              ADD
+            </StyledButton>
+
+
+           </div>
 
  
       </div>
