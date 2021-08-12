@@ -32,7 +32,7 @@ class App extends Component {
       price:null,
       From:null,
       To:null,
-      data:[]
+      res:[]
     };
   }
   
@@ -60,7 +60,7 @@ class App extends Component {
       data: search,
     })
       .then((res) => {
-        this.setState({ data: res.data });
+        this.setState({ res: res.data });
       })
       .catch((e) => {
         console.log("error");
@@ -73,7 +73,7 @@ class App extends Component {
     this.setState({ [name]: value });
   };
   render() {
-    const data= this.state;
+    const res= this.state.res;
     return (
       <div className="wraps">
 
@@ -144,7 +144,7 @@ class App extends Component {
            </div>
            <div>
               {
-             data.map((item,index)=>(
+             this.state.res.map((item,index)=>(
 
                <p >
                   Province: {item.Province} <br/>
